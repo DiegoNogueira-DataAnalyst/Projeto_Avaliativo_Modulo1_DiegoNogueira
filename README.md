@@ -78,11 +78,25 @@ python -m pip install -r requirements.txt
 Copy-Item .env.example .env
 ```
 
-Preencha o `.env` local com `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASSWORD`,
-`DRIVE_FILE_ID` e `CHUNK_SIZE`. O banco configurado é
+No `.env` local, confira os parâmetros de conexão `DB_HOST`, `DB_PORT`, `DB_NAME`
+e `DB_USER` e preencha `DB_PASSWORD` conforme sua instalação do PostgreSQL.
+O banco configurado é
 `Projeto_Avaliativo_Modulo1_DiegoNogueira`, com maiúsculas preservadas e sem espaços
 no começo ou fim. Senhas com caracteres especiais podem ser delimitadas por aspas.
 Nunca versionar ou exibir o conteúdo do `.env` em logs ou screenshots.
+
+Os parâmetros de extração já estão preenchidos no `.env.example` e têm os mesmos
+valores padrão no `config.py`; não é necessário alterá-los para usar a base fornecida:
+
+| Parâmetro | Finalidade | Valor padrão |
+| --- | --- | --- |
+| `DRIVE_FILE_ID` | Identifica o ZIP no Google Drive, no trecho `/file/d/ID/view` do link. É usado pelo download automático. | `1pQjKacyHdIsyteknQbwKGM5_4hL5V4RV` |
+| `CHUNK_SIZE` | Define a quantidade de linhas lidas por bloco na carga Raw, para controlar o uso de memória. Todos os blocos são processados até o fim do CSV. | `10000` |
+
+O `DRIVE_FILE_ID` está previsto na seção 5.2 do edital. O `CHUNK_SIZE` é uma
+configuração da implementação para atender à leitura em blocos exigida na fase 1;
+ele não limita a quantidade total de registros nem altera o período dos dados.
+O download requer acesso à internet e permissão de leitura do arquivo no Google Drive.
 
 `requirements.lock.txt` registra as versões instaladas no Windows com Python 3.14.
 Para reproduzir esse ambiente, use `python -m pip install -r requirements.lock.txt`.
@@ -295,7 +309,14 @@ e a promoção de versões para outros analistas que assumirem o projeto.
 - A carga atual substitui a fotografia no banco por exigência de `TRUNCATE`; o ZIP
   original permanece no disco para rastreabilidade.
 
-## Entrega acadêmica
+## Contexto acadêmico
 
-Prazo do edital: **03/11/2026 às 22h**, com envio do link no AVA. A última atualização
-no GitHub define a entrega. Não alterar o repositório após a submissão até receber a nota.
+Este projeto integra uma atividade avaliativa do Módulo 1 do curso **Análise de
+Dados com Python [T6]**, com o objetivo de aplicar os conceitos teóricos e práticos
+desenvolvidos ao longo do módulo.
+
+A solução utiliza dados públicos de viagens a serviço para exercitar a construção
+de um pipeline ETL, a arquitetura Medallion, a modelagem relacional em PostgreSQL,
+o tratamento de dados com Python e a comunicação de resultados por consultas SQL,
+gráficos e análises de negócio. O versionamento por etapas com GitFlow e a
+documentação de execução complementam a prática de desenvolvimento do projeto.
