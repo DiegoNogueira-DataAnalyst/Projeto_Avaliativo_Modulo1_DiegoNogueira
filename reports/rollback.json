@@ -1,0 +1,10 @@
+{
+  "status": "aprovado",
+  "cenario": "Interrupcao controlada da carga Silver iniciada com tabelas vazias",
+  "contagens_apos_interrupcao": {
+    "viagem": 0,
+    "pagamento": 0,
+    "passagem": 0,
+    "trecho": 0
+  }
+}

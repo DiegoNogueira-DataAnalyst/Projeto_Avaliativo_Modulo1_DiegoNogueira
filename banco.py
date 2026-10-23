@@ -1,4 +1,5 @@
 """Utilitários transacionais para PostgreSQL."""
+
 import psycopg
 from psycopg import sql
 
@@ -14,8 +15,12 @@ def executar(comando, parametros=None):
         return conexao.execute(comando, parametros).rowcount
 
 
-def inserir_em_lote(conexao, tabela, linhas):
-    comando = sql.SQL('COPY {} FROM STDIN').format(sql.Identifier(tabela))
+def inserir_em_lote(conexao, tabela, linhas, colunas=None):
+    comando = sql.SQL("COPY {} FROM STDIN").format(sql.Identifier(tabela))
+    if colunas:
+        comando = sql.SQL("COPY {} ({}) FROM STDIN").format(
+            sql.Identifier(tabela), sql.SQL(",").join(map(sql.Identifier, colunas))
+        )
     with conexao.cursor().copy(comando) as copia:
         for linha in linhas:
             copia.write_row(linha)
