@@ -1,0 +1,283 @@
+{
+  "p1": [
+    {
+      "nome_orgao_superior": "Ministério da Justiça e Segurança Pública",
+      "viagens": 75742,
+      "custo_total": 486933121.65
+    },
+    {
+      "nome_orgao_superior": "Ministério da Defesa",
+      "viagens": 61912,
+      "custo_total": 156070304.49
+    },
+    {
+      "nome_orgao_superior": "Ministério da Educação",
+      "viagens": 65295,
+      "custo_total": 111291349.34
+    },
+    {
+      "nome_orgao_superior": "Ministério do Meio Ambiente e Mudança do Clima",
+      "viagens": 19413,
+      "custo_total": 49697710.16
+    },
+    {
+      "nome_orgao_superior": "Ministério da Previdência Social",
+      "viagens": 8190,
+      "custo_total": 40417309.06
+    }
+  ],
+  "p2": [
+    {
+      "destinos": "Abu Dabi/Emirados Árabes, Riad/Arábia Saudita, Rio de Janeiro/RJ",
+      "viagens": 1,
+      "custo_medio": 245852.8
+    },
+    {
+      "destinos": "Brasília/DF, Rio Branco/AC, Cruzeiro do Sul/AC, Rio Branco/AC, Brasília/DF, São Paulo/SP, Brasília/DF, Cuiabá/MT, Brasília/DF, Teresina/PI, Brasília/DF, Maceió/AL, Brasília/DF, Rio de Janeiro/RJ, Brasília/DF, Palmas/TO, Brasília/DF, Manaus/AM, Brasília/DF, Cuiabá/MT, Brasília/DF, Campinas/SP, Brasília/DF, Belo Horizonte/MG, Porto Alegre/RS, Brasília/DF, Foz do Iguaçu/PR, Brasília/DF, Fortaleza/CE, Brasília/DF, Belém/PA, Manaus/AM, Brasília/DF, Curitiba/PR, Foz do Iguaçu/PR, Brasília/DF, Fortaleza/CE, Brasília/DF, São Paulo/SP, Brasília/DF, Salvador/BA, Brasília/DF, Rio de Janeiro/RJ, Brasília/DF, Natal/RN, João Pessoa/PB, Brasília/DF, Brasília/DF",
+      "viagens": 1,
+      "custo_medio": 216729.36
+    },
+    {
+      "destinos": "Brasília/DF, Rio de Janeiro/RJ, Angra dos Reis/RJ, Rio de Janeiro/RJ, Brasília/DF, Belém/PA, Brasília/DF, Rio de Janeiro/RJ, Brasília/DF, Rio de Janeiro/RJ, Brasília/DF, Rio de Janeiro/RJ, Brasília/DF, Rio de Janeiro/RJ, Brasília/DF, Belém/PA, Brasília/DF, Rio de Janeiro/RJ, Brasília/DF, Rio de Janeiro/RJ, Brasília/DF, Rio de Janeiro/RJ, Brasília/DF, Cuiabá/MT, Brasília/DF, Rio de Janeiro/RJ, Brasília/DF, Rio de Janeiro/RJ, Brasília/DF, Rio de Janeiro/RJ, Brasília/DF, Palmas/TO, Brasília/DF, Florianópolis/SC, Brasília/DF, Belo Horizonte/MG, Brasília/DF, Belém/PA, Brasília/DF, Rio de Janeiro/RJ, Brasília/DF, Belém/PA, Brasília/DF",
+      "viagens": 1,
+      "custo_medio": 207220.14
+    }
+  ],
+  "p3": [
+    {
+      "id_viagem": "0000000000020699856",
+      "nome_orgao_superior": "Ministério da Previdência Social",
+      "situacao": "Realizada",
+      "data_inicio": "2025-01-13T00:00:00.000",
+      "data_fim": "2026-01-31T00:00:00.000",
+      "duracao_dias": 384,
+      "valor_total": 0.0
+    }
+  ],
+  "p4": [
+    {
+      "tipo_pagamento": "PASSAGEM",
+      "quantidade": 186008,
+      "valor_medio": 1856.7780791149
+    },
+    {
+      "tipo_pagamento": "DIÁRIAS",
+      "quantidade": 366351,
+      "valor_medio": 1797.5529279298
+    },
+    {
+      "tipo_pagamento": "Serviço correlato: seguro",
+      "quantidade": 4882,
+      "valor_medio": 447.7247685375
+    },
+    {
+      "tipo_pagamento": "RESTITUIÇÃO",
+      "quantidade": 11570,
+      "valor_medio": 245.6939343129
+    }
+  ],
+  "p5": [
+    {
+      "meio_transporte": "Veículo Oficial",
+      "quantidade": 386424
+    },
+    {
+      "meio_transporte": "Aéreo",
+      "quantidade": 232666
+    },
+    {
+      "meio_transporte": "Rodoviário",
+      "quantidade": 64970
+    },
+    {
+      "meio_transporte": "Veículo Próprio",
+      "quantidade": 42846
+    },
+    {
+      "meio_transporte": "Inválido",
+      "quantidade": 26659
+    },
+    {
+      "meio_transporte": "Fluvial",
+      "quantidade": 8429
+    },
+    {
+      "meio_transporte": "Ferroviário",
+      "quantidade": 874
+    },
+    {
+      "meio_transporte": "Marítimo",
+      "quantidade": 481
+    }
+  ],
+  "p6": [
+    {
+      "uf_destino": "São Paulo",
+      "quantidade": 82722
+    },
+    {
+      "uf_destino": "Distrito Federal",
+      "quantidade": 79962
+    },
+    {
+      "uf_destino": "Minas Gerais",
+      "quantidade": 50965
+    },
+    {
+      "uf_destino": "Rio de Janeiro",
+      "quantidade": 44197
+    },
+    {
+      "uf_destino": "Paraná",
+      "quantidade": 42603
+    },
+    {
+      "uf_destino": "Pará",
+      "quantidade": 40044
+    },
+    {
+      "uf_destino": "Rio Grande do Sul",
+      "quantidade": 38684
+    },
+    {
+      "uf_destino": "Mato Grosso do Sul",
+      "quantidade": 30516
+    },
+    {
+      "uf_destino": "Bahia",
+      "quantidade": 28375
+    },
+    {
+      "uf_destino": "Pernambuco",
+      "quantidade": 28372
+    },
+    {
+      "uf_destino": "Goiás",
+      "quantidade": 27122
+    },
+    {
+      "uf_destino": "Amazonas",
+      "quantidade": 26477
+    },
+    {
+      "uf_destino": "Santa Catarina",
+      "quantidade": 22736
+    },
+    {
+      "uf_destino": "Ceará",
+      "quantidade": 21932
+    },
+    {
+      "uf_destino": "Mato Grosso",
+      "quantidade": 21845
+    },
+    {
+      "uf_destino": "Roraima",
+      "quantidade": 18778
+    },
+    {
+      "uf_destino": "Rio Grande do Norte",
+      "quantidade": 17835
+    },
+    {
+      "uf_destino": "Maranhão",
+      "quantidade": 17730
+    },
+    {
+      "uf_destino": "Rondônia",
+      "quantidade": 17321
+    },
+    {
+      "uf_destino": "Paraíba",
+      "quantidade": 15642
+    },
+    {
+      "uf_destino": "Não informado",
+      "quantidade": 14742
+    },
+    {
+      "uf_destino": "Tocantins",
+      "quantidade": 13729
+    },
+    {
+      "uf_destino": "Espírito Santo",
+      "quantidade": 11945
+    },
+    {
+      "uf_destino": "Acre",
+      "quantidade": 11754
+    },
+    {
+      "uf_destino": "Piauí",
+      "quantidade": 10876
+    },
+    {
+      "uf_destino": "Alagoas",
+      "quantidade": 10073
+    },
+    {
+      "uf_destino": "Amapá",
+      "quantidade": 8614
+    },
+    {
+      "uf_destino": "Sergipe",
+      "quantidade": 7729
+    },
+    {
+      "uf_destino": "Inválido",
+      "quantidade": 29
+    }
+  ],
+  "p7": [
+    {
+      "orgao_pagador": "Sigiloso",
+      "pagamentos": 86878,
+      "valor_total": 170659883.35
+    },
+    {
+      "orgao_pagador": "Fundo Nacional de Segurança Pública",
+      "pagamentos": 53440,
+      "valor_total": 141911719.64
+    },
+    {
+      "orgao_pagador": "Comando da Aeronáutica",
+      "pagamentos": 45962,
+      "valor_total": 81180823.06
+    },
+    {
+      "orgao_pagador": "Comando do Exército",
+      "pagamentos": 22056,
+      "valor_total": 35901379.45
+    },
+    {
+      "orgao_pagador": "Instituto Nacional do Seguro Social",
+      "pagamentos": 17899,
+      "valor_total": 35385354.57
+    },
+    {
+      "orgao_pagador": "Ministério da Gestão e da Inovação em Serviços Públicos - Unidades com vínculo direto",
+      "pagamentos": 20136,
+      "valor_total": 34640016.36
+    },
+    {
+      "orgao_pagador": "Instituto Brasileiro do Meio Ambiente e dos Recursos Naturais Renováveis",
+      "pagamentos": 16581,
+      "valor_total": 31010870.85
+    },
+    {
+      "orgao_pagador": "Ministério das Relações Exteriores - Unidades com vínculo direto",
+      "pagamentos": 3685,
+      "valor_total": 25589924.6
+    },
+    {
+      "orgao_pagador": "Receita Federal do Brasil",
+      "pagamentos": 18833,
+      "valor_total": 23548336.51
+    },
+    {
+      "orgao_pagador": "Ministério da Agricultura e Pecuária - Unidades com vínculo direto",
+      "pagamentos": 15757,
+      "valor_total": 22343023.69
+    }
+  ]
+}
