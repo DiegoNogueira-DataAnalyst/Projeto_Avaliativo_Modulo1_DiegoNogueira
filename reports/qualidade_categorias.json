@@ -1,0 +1,26 @@
+[
+  {
+    "metrica":"meio_transporte",
+    "dimensao":"Inválido",
+    "quantidade":26659,
+    "valor_total":null
+  },
+  {
+    "metrica":"orgao_pagador",
+    "dimensao":"Sigiloso",
+    "quantidade":86878,
+    "valor_total":170659883.349999994
+  },
+  {
+    "metrica":"uf_destino",
+    "dimensao":"Inválido",
+    "quantidade":29,
+    "valor_total":null
+  },
+  {
+    "metrica":"uf_destino",
+    "dimensao":"Não informado",
+    "quantidade":14742,
+    "valor_total":null
+  }
+]

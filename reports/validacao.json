@@ -1,0 +1,38 @@
+{
+  "status": "aprovado",
+  "etapa": "pipeline_completo",
+  "contagens": {
+    "viagem": {
+      "raw": 341860,
+      "silver": 341860,
+      "rejeitados": 0
+    },
+    "pagamento": {
+      "raw": 606916,
+      "silver": 568811,
+      "rejeitados": 38105
+    },
+    "passagem": {
+      "raw": 167260,
+      "silver": 167210,
+      "rejeitados": 50
+    },
+    "trecho": {
+      "raw": 763349,
+      "silver": 763349,
+      "rejeitados": 0
+    }
+  },
+  "rejeicoes_por_motivo": [
+    {
+      "tabela": "pagamento",
+      "motivo": "chave duplicada; preservada primeira ocorrência na ordem Raw",
+      "quantidade": 38105
+    },
+    {
+      "tabela": "passagem",
+      "motivo": "chave duplicada; preservada primeira ocorrência na ordem Raw",
+      "quantidade": 50
+    }
+  ]
+}
