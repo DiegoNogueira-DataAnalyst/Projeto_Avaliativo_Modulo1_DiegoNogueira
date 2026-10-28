@@ -107,6 +107,48 @@ def grafico(df, categoria, valor, titulo, eixo, arquivo):
 
 resultados = {}
 """)
+codigo("""def apresentar_destinos(df):
+    # Apenas a apresentação é abreviada; o resultado completo permanece no JSON.
+    if df.empty:
+        raise ValueError('Consulta de destinos sem dados')
+
+    def moeda(valor):
+        return f'R$ {float(valor):,.2f}'.replace(',', '_').replace('.', ',').replace('_', '.')
+
+    def resumo(texto):
+        localidades = list(dict.fromkeys(item.strip() for item in texto.split(',')))
+        return ', '.join(localidades[:3]) + (', outras localidades' if len(localidades) > 3 else '')
+
+    rotulos = [f'Itinerário {i}' for i in range(1, len(df) + 1)]
+    display(pd.DataFrame({
+        'Referência no gráfico': rotulos,
+        'Localidades (resumo)': df['destinos'].map(resumo).tolist(),
+        'Viagens': df['viagens'].astype(int).tolist(),
+        'Custo médio por viagem': df['custo_medio'].map(moeda).tolist(),
+    }))
+    if df['viagens'].eq(1).all():
+        nota = 'Cada grupo contém uma única viagem: a média coincide com o custo dessa viagem.'
+    else:
+        nota = 'Leia as médias junto à quantidade de viagens de cada grupo na tabela.'
+    display(Markdown('**Como interpretar:** ' + nota +
+        ' O ranking compara itinerários completos, sem estimar o custo típico de cada cidade. '
+        'As listas integrais estão em [resultados.json](reports/resultados.json), na seção `p2`.'))
+    fig, ax = plt.subplots(figsize=(12, 5))
+    valores = df['custo_medio'].astype(float)
+    barras = ax.barh(rotulos, valores, color='#176B87', height=.55)
+    ax.invert_yaxis()
+    ax.set(title='Três itinerários completos com maior custo médio por viagem',
+        xlabel='Custo líquido médio por viagem (R$)', ylabel='Itinerário (ver tabela)')
+    ax.set_xlim(0, max(float(valores.max()), 1) * 1.35)
+    ax.xaxis.set_major_formatter(FuncFormatter(lambda x, pos: f'{x:,.0f}'.replace(',', '.')))
+    ax.bar_label(barras, labels=[moeda(v) for v in valores], padding=8, fontsize=11)
+    fig.legend(handles=[Patch(color='#176B87', label='Custo líquido médio do itinerário')],
+        loc='lower center', bbox_to_anchor=(.5, .07), frameon=False)
+    fig.text(.5, .025, nota, ha='center', fontsize=10)
+    fig.tight_layout(rect=(0, .16, 1, 1))
+    fig.savefig(ROOT / 'reports' / 'figures' / 'p2.png', dpi=150, bbox_inches='tight')
+    plt.show()
+""")
 markdown(
     "## Qualidade e cobertura da análise\nA contagem permite confrontar Raw, Silver e registros rejeitados. Nenhum dado pessoal de viajante é exibido nas saídas."
 )
@@ -162,9 +204,22 @@ for i, (titulo, sql, categoria, valor, graf, eixo) in enumerate(perguntas, 1):
         + sql
         + "\n```\n\nEmpates são ordenados pela dimensão/identificador para resultados reprodutíveis."
     )
-    codigo(
-        f"df = consultar({sql!r})\ndisplay(df)\nresultados['p{i}'] = df\ngrafico(df, {categoria!r}, {valor!r}, {graf!r}, {eixo!r}, 'p{i}.png')\ndisplay(Markdown('**Evidência:** ' + df.to_string(index=False)))\n"
-    )
+    if i == 2:
+        markdown(
+            "**Unidade da comparação:** cada grupo usa o campo `destinos` inteiro, "
+            "que pode reunir várias cidades. A média é o custo líquido das viagens "
+            "desse grupo dividido pela quantidade de viagens com custo conhecido. "
+            "Os resumos não representam cidades isoladas nem a ordem dos deslocamentos. "
+            "Repetições de localidades são omitidas somente no resumo; o agrupamento "
+            "SQL permanece integral."
+        )
+        codigo(
+            f"df = consultar({sql!r})\nresultados['p2'] = df\napresentar_destinos(df)\n"
+        )
+    else:
+        codigo(
+            f"df = consultar({sql!r})\ndisplay(df)\nresultados['p{i}'] = df\ngrafico(df, {categoria!r}, {valor!r}, {graf!r}, {eixo!r}, 'p{i}.png')\ndisplay(Markdown('**Evidência:** ' + df.to_string(index=False)))\n"
+        )
 markdown("""## Construção da camada Gold: tabela e VIEW
 
 A VIEW calcula quatro agregações com `JOIN` e `GROUP BY`. A tabela persiste a mesma
@@ -273,7 +328,7 @@ situacao = p3.iloc[0]['situacao']
 qualidade = consultar("SELECT metrica, dimensao, quantidade, valor_total FROM gold_metricas WHERE lower(dimensao) IN ('inválido', 'não informado', 'sigiloso') ORDER BY metrica, dimensao")
 linhas = [
     f"Os cinco órgãos líderes concentram {float(p1['custo_total'].sum()) / total_viagens:.1%} do custo líquido conhecido. {p1.iloc[0]['nome_orgao_superior']} lidera com {reais(p1.iloc[0]['custo_total'])}. Isso mede concentração, sem demonstrar irregularidade.",
-    f"O itinerário com maior média registra {reais(p2.iloc[0]['custo_medio'])}. Quantidade de viagens nesse itinerário: {int(p2.iloc[0]['viagens'])}. Médias com poucas observações devem ser interpretadas com cautela; não se estima um padrão populacional a partir desse ranking.",
+    f"O itinerário com maior média registra {reais(p2.iloc[0]['custo_medio'])}. Quantidade de viagens nesse itinerário: {int(p2.iloc[0]['viagens'])}. O ranking compara itinerários completos, não cidades isoladas. " + ('Os três grupos possuem uma viagem cada; suas médias coincidem com os custos individuais dessas viagens. ' if p2['viagens'].eq(1).all() else '') + 'Médias com poucas observações devem ser interpretadas com cautela; esse ranking não estima o custo típico de uma cidade.',
     f"A viagem {p3.iloc[0]['id_viagem']} apresenta período informado de {int(p3.iloc[0]['duracao_dias'])} dias inclusivos e custo líquido registrado de {reais(p3.iloc[0]['valor_total'])}. Situação: {situacao if pd.notna(situacao) else 'não informada'}. O valor zero registrado e o período informado não comprovam, isoladamente, despesa efetiva nula ou deslocamento contínuo durante todo o intervalo.",
     f"O tipo {p4.iloc[0]['tipo_pagamento']} tem o maior valor médio: {reais(p4.iloc[0]['valor_medio'])}. A média é por registro de pagamento, não por viagem.",
     f"O meio {p5.iloc[0]['meio_transporte']} representa {int(p5.iloc[0]['quantidade']) / total_trechos:.1%} dos trechos aceitos. Isso mede segmentos de deslocamento, não pessoas distintas.",
