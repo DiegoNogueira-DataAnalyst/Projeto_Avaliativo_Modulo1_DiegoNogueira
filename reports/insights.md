@@ -1,6 +1,6 @@
 Os cinco órgãos líderes concentram 71.1% do custo líquido conhecido. Ministério da Justiça e Segurança Pública lidera com R$ 486.933.121,65. Isso mede concentração, sem demonstrar irregularidade.
 
-O itinerário com maior média registra R$ 245.852,80. Quantidade de viagens nesse itinerário: 1. Médias com poucas observações devem ser interpretadas com cautela; não se estima um padrão populacional a partir desse ranking.
+O itinerário com maior média registra R$ 245.852,80. Quantidade de viagens nesse itinerário: 1. O ranking compara itinerários completos, não cidades isoladas. Os três grupos possuem uma viagem cada; suas médias coincidem com os custos individuais dessas viagens. Médias com poucas observações devem ser interpretadas com cautela; esse ranking não estima o custo típico de uma cidade.
 
 A viagem 0000000000020699856 apresenta período informado de 384 dias inclusivos e custo líquido registrado de R$ 0,00. Situação: Realizada. O valor zero registrado e o período informado não comprovam, isoladamente, despesa efetiva nula ou deslocamento contínuo durante todo o intervalo.
 

@@ -242,17 +242,24 @@ descreve concentração de gastos; não demonstra irregularidade.
 
 ![Ranking dos cinco órgãos por custo líquido](reports/figures/p1.png)
 
-### Três destinos com maior custo médio
+### Três destinos com maior custo médio: itinerários completos
 
-| Itinerário | Viagens | Custo médio |
-|---|---:|---:|
-| Abu Dabi/Emirados Árabes → Riad/Arábia Saudita → Rio de Janeiro/RJ | 1 | R$ 245.852,80 |
-| Brasília/DF → Rio Branco/AC → Cruzeiro do Sul/AC → … | 1 | R$ 216.729,36 |
-| Brasília/DF → Rio de Janeiro/RJ → Angra dos Reis/RJ → … | 1 | R$ 207.220,14 |
+| Referência no gráfico | Localidades (resumo) | Viagens | Custo médio por viagem |
+|---|---|---:|---:|
+| Itinerário 1 | Abu Dabi/Emirados Árabes, Riad/Arábia Saudita, Rio de Janeiro/RJ | 1 | R$ 245.852,80 |
+| Itinerário 2 | Brasília/DF, Rio Branco/AC, Cruzeiro do Sul/AC, outras localidades | 1 | R$ 216.729,36 |
+| Itinerário 3 | Brasília/DF, Rio de Janeiro/RJ, Angra dos Reis/RJ, outras localidades | 1 | R$ 207.220,14 |
 
-Os dois itinerários extensos estão abreviados nesta tabela; as listas integrais estão
-no notebook e no JSON de resultados. Cada grupo contém **uma única viagem**. O ranking
-caracteriza esses itinerários específicos, sem estimar o custo típico de uma cidade.
+Cada grupo corresponde ao campo `destinos` completo, que pode conter várias cidades.
+Os resumos mostram até três localidades distintas e não indicam a ordem dos deslocamentos.
+As listas integrais, incluindo repetições, permanecem no [JSON de resultados](reports/resultados.json),
+na seção `p2`; a abreviação não altera o agrupamento nem os cálculos.
+
+Cada grupo contém **uma única viagem**, portanto a média coincide com o custo dessa
+viagem. O ranking caracteriza esses itinerários específicos, sem estimar o custo
+típico de uma cidade e sem repartir os gastos entre as localidades.
+
+![Três itinerários completos por custo líquido médio, com uma viagem por grupo](reports/figures/p2.png)
 
 ### Demais respostas
 
