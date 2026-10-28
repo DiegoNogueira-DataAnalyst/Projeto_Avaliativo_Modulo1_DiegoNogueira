@@ -1,0 +1,19 @@
+{
+  "base_comparada": "1e7a4c3e964fbd56bcae98c0da1c64062312722d",
+  "sete_respostas_identicas": true,
+  "consulta_pergunta_2_preservada": true,
+  "demais_celulas_sem_alteracoes_de_logica": true,
+  "graficos_inalterados": [
+    "p1.png",
+    "p3.png",
+    "p4.png",
+    "p5.png",
+    "p6.png"
+  ],
+  "celulas_executadas_sem_erros": 13,
+  "graficos_no_notebook": 6,
+  "tabela_pergunta_2_compacta": true,
+  "validacao_integrada_postgresql": "aprovada",
+  "testes_conversao_aprovados": 4,
+  "ruff": "aprovado"
+}
